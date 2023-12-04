@@ -2,12 +2,13 @@ package baseball.game;
 
 import baseball.game.view.InputView;
 import baseball.game.view.OutputView;
-import camp.nextstep.edu.missionutils.Console;
 
 public class GameController {
 
     private final OutputView outputView = new OutputView();
     private final InputView inputView = new InputView();
+
+    private final GameService gameService = new GameService();
     private boolean restartFlag = false;
 
 
@@ -17,26 +18,23 @@ public class GameController {
     }
 
     public void initGameInfo() {
-        // 컴퓨터 값과 사용자 값 지정
         ComputerNumber computer = new ComputerNumber(); // 컴퓨터 객체 생성
         User user = new User(); // 사용자 객체 생성
         do {
-
             String input = inputView.inputNumbers();// 사용자 한테 값을 입력받음.
             user.setUserNumbers(input);
-//            restartFlag = compareNumber(user.getNumbers(),
-//                    computer.getComputerNum()); // 값 비교를 통해서 값이 일치하면 종료 아니면 다시 실행.
+            restartFlag = gameService.compareNumberBetweenUserAndComputer(user.getNumbers(),
+                    computer.getComputerNum()); // 값 비교를 통해서 값이 일치하면 종료 아니면 다시 실행.
         } while (!restartFlag);
 
         restart();
     }
 
     public void restart() { // 재시작 여부 확인
-        System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
-        String input = Console.readLine();
-        int i = Integer.parseInt(input);
-        exception(i); // 입력값에 대한 예외 처리
-        if (i == 1) {
+        String input = inputView.restartMessage();
+        int restartNumber = Integer.parseInt(input);
+        validateRestartNumber(restartNumber); // 입력값에 대한 예외 처리
+        if (restartNumber == 1) {
             initGameInfo();
         }
     }
@@ -84,7 +82,8 @@ public class GameController {
 //
 //    }
 
-    private void exception(int i) {
+
+    private void validateRestartNumber(int i) {
         if (!(i == 1 || i == 2)) {
             throw new IllegalArgumentException("1또는 2만 입력할 수 있습니다.");
         }
