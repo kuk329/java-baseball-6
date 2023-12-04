@@ -4,12 +4,13 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class InputView {
 
-    private final String INPUT_MESSAGE = "숫자를 입력해주세요 :";
+    private final String INPUT_MESSAGE = "숫자를 입력해주세요 : ";
 
-    public void inputNumbers() {
-        System.out.println(INPUT_MESSAGE);
+    public String inputNumbers() {
+        System.out.print(INPUT_MESSAGE);
         String numbers = Console.readLine();
         validateInputNull(numbers);
+        return numbers;
 
     }
 
