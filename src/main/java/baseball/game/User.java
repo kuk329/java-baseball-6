@@ -2,7 +2,7 @@ package baseball.game;
 
 import camp.nextstep.edu.missionutils.Console;
 
-public class UserNumber {
+public class User {
     // 사용자 한테 값을 입력받음.
     private int[] userArr = new int[3];
 

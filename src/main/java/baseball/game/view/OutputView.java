@@ -8,4 +8,5 @@ public class OutputView {
     public void startMessage() {
         System.out.println(START_MESSAGE);
     }
+
 }

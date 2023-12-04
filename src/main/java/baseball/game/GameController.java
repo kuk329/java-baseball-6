@@ -1,5 +1,6 @@
 package baseball.game;
 
+import baseball.game.view.InputView;
 import baseball.game.view.OutputView;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
@@ -7,21 +8,23 @@ import java.util.List;
 public class GameController {
 
     private final OutputView outputView = new OutputView();
+    private final InputView inputView = new InputView();
 
     private boolean restartFlag = false;
 
 
-    public void run() {
-        outputView.startMessage();
-        start();
+    public void start() {
+        outputView.startMessage(); // 출력 메세지
+        initGameInfo(); // 게임 진행을 위한 정보 초기화
     }
 
-    public void start() {
+    public void initGameInfo() {
         // 컴퓨터 값과 사용자 값 지정
         ComputerNumber computer = new ComputerNumber(); // 컴퓨터 객체 생성
-        UserNumber user = new UserNumber(); // 사용자 객체 생성
+        User user = new User(); // 사용자 객체 생성
         do {
-            user.input();// 사용자 한테 값을 입력받음.
+            //   user.input();
+            inputView.inputNumbers(); // 사용자 한테 값을 입력받음.
             restartFlag = compareNumber(user.getUserArr(),
                     computer.getComputerNum()); // 값 비교를 통해서 값이 일치하면 종료 아니면 다시 실행.
         } while (!restartFlag);
@@ -35,7 +38,7 @@ public class GameController {
         int i = Integer.parseInt(input);
         exception(i); // 입력값에 대한 예외 처리
         if (i == 1) {
-            start();
+            initGameInfo();
         }
     }
 
