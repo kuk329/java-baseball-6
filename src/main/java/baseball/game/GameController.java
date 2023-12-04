@@ -1,15 +1,18 @@
 package baseball.game;
 
+import baseball.game.view.OutputView;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 
-public class Game {
+public class GameController {
+
+    private final OutputView outputView = new OutputView();
 
     private boolean restartFlag = false;
 
 
     public void run() {
-        System.out.println("숫자 야구 게임을 시작합니다.");
+        outputView.startMessage();
         start();
     }
 
