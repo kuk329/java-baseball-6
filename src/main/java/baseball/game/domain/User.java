@@ -1,4 +1,4 @@
-package baseball.game;
+package baseball.game.domain;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +20,10 @@ public class User {
 
         validateListLength();
 
+    }
+
+    public void clearNumbers() {
+        numbers.clear();
     }
 
     public List<Integer> getNumbers() {

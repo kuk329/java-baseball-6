@@ -1,6 +1,7 @@
 package baseball.game;
 
 
+import baseball.game.domain.User;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 

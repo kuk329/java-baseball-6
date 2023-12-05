@@ -1,14 +1,14 @@
-package baseball.game;
+package baseball.game.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ComputerNumber {
+public class Computer {
     // 컴퓨터에서 랜덤 숫자를 뽑음.
     private List<Integer> numbers = new ArrayList<>();
 
-    public ComputerNumber() {
+    public Computer() {
         while (numbers.size() < 3) { // 컴퓨터가 지정한 숫자 3개
             int randomNumber = Randoms.pickNumberInRange(1, 9);
 
@@ -16,6 +16,8 @@ public class ComputerNumber {
                 numbers.add(randomNumber);
             }
         }
+//        System.out.println("컴퓨터가 고른 숫자");
+//        System.out.println(numbers);
 
     }
 
