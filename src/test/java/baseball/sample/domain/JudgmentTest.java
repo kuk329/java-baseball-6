@@ -24,4 +24,5 @@ class JudgmentTest {
         Assertions.assertThat(result).isEqualTo(2);
     }
 
+
 }

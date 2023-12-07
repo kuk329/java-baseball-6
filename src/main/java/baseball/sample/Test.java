@@ -14,6 +14,7 @@ public class Test {
 //                Arrays.asList(1, 2, 3), Arrays.asList(2, 8, 9)
 //        );
 //        System.out.println(count);
-        judgment.hasPlace(Arrays.asList(1, 2, 3), 0, 1);
+        boolean b = judgment.hasPlace(Arrays.asList(7, 8, 9), 1, 8);
+        System.out.println(b);
     }
 }
