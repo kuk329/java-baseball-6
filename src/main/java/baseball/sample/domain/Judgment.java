@@ -10,12 +10,15 @@ public class Judgment {
             if (computer.contains(player.get(i))) {
                 result += 1;
             }
-
         }
         return result;
     }
 
     public boolean hasPlace(List<Integer> computer, int placeNumber, int number) {
-        return false;
+        return computer.get(placeNumber) == number;
+//        if (computer.get(placeNumber) == number) {
+//            return true;
+//        }
+//        return false;
     }
 }
